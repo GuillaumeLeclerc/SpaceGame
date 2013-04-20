@@ -13,12 +13,26 @@ function Fuel(amount_,fuelEfficiency_,mass_value_) {
 
 
     that.getEnergy = function (fuelConsumption_) {
+        if (that.amount == 0) {
+            return 0;
+        }
         that.amount -= fuelConsumption_;
-        return that.fuelEfficiency * fuelConsumption_;
+        usedFuel = fuelConsumption_;
+        if (that.amount < 0) {
+            usedFuel = fuelConsumption_ - that.amount;
+            that.amount = 0;
+
+        }
+
+
+        return that.fuelEfficiency * usedFuel;
     }
 
     that.getMass = function () {
-        return that.mass_value_ * that.amount;
+        if (that.amount == 0) {
+            return 0;
+        }
+        return that.mass_value * that.amount;
     }
 
 
