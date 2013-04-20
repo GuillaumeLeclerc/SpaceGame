@@ -15,12 +15,12 @@ function Rocket(i_mass , i_engine) {
 
     that.updateMass();
 
-    that.nextStep = function (planet) {
+    that.nextStep = function (planet,timeStep) {
         that.updateMass();
         var resultant = new Point(0, -1);
         resultant.scalarMultiply(planet.getGravity(that.mass, that.position.y));
         resultant.add(that.engine.getForce());
-        that.applyForce(resultant);
+        that.applyForce(resultant,timeStep);
     }
 }
 
