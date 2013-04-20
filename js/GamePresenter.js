@@ -86,6 +86,8 @@ function GamePresenter(parent)
 		}
 		
 		that.rocket.nextStep(that.parent.planet, timeStep);
+		
+		return -1;
 	}
 	
 	var displayStage = function()
