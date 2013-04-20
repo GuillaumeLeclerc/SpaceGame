@@ -16,9 +16,7 @@ function Entity() {
     that.applyForce = function (f) {
         that.accelereation = f.scalarDivide(that.mass);
         that.speed.add(that.accelereation);
-    }
-
-    that.move = function () {
         that.position.add(that.speed);
     }
+
 }
