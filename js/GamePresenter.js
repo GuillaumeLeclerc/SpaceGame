@@ -15,7 +15,7 @@ function GamePresenter(parent)
 	var that = this;
 	var that.parent = parent;
 	var that.canvas = parent.data.canvas;
-	var that.context = parent.data.canvas.context;
+	var that.context = parent.data.canvasContext;
 	var that.width = parent.data.canvas.width;
 	var that.height = parent.data.canvas.height;
 	
@@ -26,71 +26,82 @@ function GamePresenter(parent)
 	var that.leftPressed = false;
 	var that.rightPressed = false;
 	
+	var that.leftPressedID = -1;
+	var that.rightPressedID = -1;
+	
 	that.pointerUp = function(evt)
 	{
-		evt.preventDefault();
-		that.leftPressed = false;
-	    that.rightPressed = false;
+		if (that.leftPressedID = evt.pointerId)
+		{
+			that.leftPressed = false;
+		}
+		
+		if (that.rightPressedID = evt.pointerId)
+		{
+			that.rightPressed = false;
+		}
 	}	
 	
 	that.pointerDown = function(evt)
 	{
-		evt.preventDefault();
 		var clickX = evt.clientX;
 		var clickY = evt.clientY;
-		
-	    that.leftPressed = false;
-	    that.rightPressed = false;
 		
 		// Check if the event is left or right
 		if ((x >= 0 && x <= (that.width / 3)) && (y >= (2/3*that.height) && y <= that.height))
 		{ 
 	    	// Left move detected
+	    	that.leftPressedID = evt.pointerID;
 	    	that.leftPressed = true;
-	    	that.rightPressed = false;
 		}
 	
 		if ((x >= (2/3*that.width) && x <= that.width) && (y >= (2/3*that.height) && y <= that.height))
 		{ 
 	    	// Right move detected
-	    	that.leftPressed = false;
+	    	that.rightPressedID = evt.pointerID;
 	    	that.rightPressed = true;
 		}
 	}
 	
-	that.nextStep = function()
+	that.nextStep = function(timeStep)
 	{
+		that.rocket.engine.rearOn = true;
+	
+		if (that.leftPressed == true)
+		{
+			that.rocket.engine.rightOn = true;
+		}
+		else
+		{
+			that.rocket.engine.rightOn = false;
+		}
 		
+		if (that.rightPressed == true)
+		{
+			that.rocket.engine.leftOn = true;
+		}
+		else
+		{
+			that.rocket.engine.leftOn = false;
+		}
+		
+		that.rocket.nextStep(that.parent.planet, timeStep);
 	}
-}
-
-
-
-/**
-represent a basic physic entity
-*/
-function Entity() {
-    // Do attributes and methods
-    var that = this;
-
-    that.accelereation = new Point(0, 0);
-    that.speed = new Point(0, 0);
-    that.position = new Point(0, 0);
-    that.mass = 5;
-
-    that.setMass = function(i_mass){
-        that.mass = i_mass;
-    }
-
-    that.applyForce = function (f , timeStep) {
-        f.scalarDivide(that.mass);
-        that.accelereation = f;
-        var changeSpeed = new Point(that.accelereation.x, that.accelereation.y);
-        changeSpeed.scalarMultiply(timeStep);
-        that.speed.add(changeSpeed);
-        var changingPosition = new Point(that.speed.x , that.speed.y);
-        changingPosition.scalarMultiply(timeStep);
-        that.position.add(changingPosition);
-    }
-
+	
+	var displayStage = function()
+	{
+		that.context.fillStyle = "rgba(50, 50, 50, 1)";
+   	 	that.context.fillRect(0, 0, that.canvas.width, that.canvas.height);
+   	 	
+   	 	var rocketImage = that.parent.images.rocket1;
+   	 	// 180m is the height of a standard rocket
+   	 	var aspectRatio = 180 / that.rocketImage.height;
+   	 	var rocketXinMeters = that.rocket.position.x;
+   	 	var rocketXinPixels = aspectRatio / rocketXinMeters;
+   	 	
+   	 	rocketImage.onload = function()
+    	{
+    		that.context.drawImage(rocketImage, rocketXinPixels, that.canvas.height-that.rocketImage.height, rocketImage.width, rocketImage.height);
+  		}
+	}
 }
