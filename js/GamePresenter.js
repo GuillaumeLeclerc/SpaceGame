@@ -6,6 +6,31 @@
 
 // 1280 x 768
 
+function wrapText(context, text, x, y, maxWidth, lineHeight) 
+{
+  	var words = text.split(' ');
+    var line = '';
+
+    for(var n = 0; n < words.length; n++) 
+ 	{
+    	var testLine = line + words[n] + ' ';
+        var metrics = context.measureText(testLine);
+        var testWidth = metrics.width;
+        if(testWidth > maxWidth) 
+ 		{
+        	context.fillText(line, x, y);
+        	line = words[n] + ' ';
+            y += lineHeight;
+        }
+        else 
+ 		{
+            line = testLine;
+        }
+    }
+	
+	context.fillText(line, x, y);
+}
+
 /**
 Game Presenter
 */
@@ -116,8 +141,10 @@ function GamePresenter(parent)
    	 	var rocketXinMeters = that.rocket.position.x;
    	 	var rocketXinPixels = rocketXinMeters / aspectRatio;
    	 	
-   	 	that.context.drawImage(that.rocketImage, rocketXinPixels + that.canvas.width/2 - 30, that.canvas.height - 100, 60, 100);
-   	 	//that.rocketImage.onload = function()
+   	 	that.context.fillStyle = "rgba(255, 255, 255, 1)";
+   	 	wrapText(that.context, "Speed = " + that.rocket.speed.x, 0, 30, 100, 20);
+   	 	wrapText(that.context, "Acceleration = " + that.rocket.accelereation.x, 0, 60, 100, 20);   	 	
+   	 	that.context.drawImage(that.rocketImage, rocketXinPixels + that.canvas.width/2 - 30, that.canvas.height - 100, 60, 100);   	 	//that.rocketImage.onload = function()
     	//{
     		
   		//}
