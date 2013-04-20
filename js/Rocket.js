@@ -6,12 +6,14 @@
 
 function Rocket(i_mass , i_engine) {
     var that = this;
-    that.skeletonMass = 0;
+    that.skeletonMass = i_mass;
     that.engine = i_engine;
 
     that.updateMass = function () {
-        that.mass = that.skeletonMass + that.engine.getMass();
+        that.setMass(that.skeletonMass + that.engine.getMass());
     }
+
+    that.updateMass();
 
     that.nextStep = function (planet) {
         that.updateMass();

@@ -32,7 +32,7 @@ function Fuel(amount_,fuelEfficiency_,mass_value_) {
         if (that.amount == 0) {
             return 0;
         }
-        return that.mass_value * that.amount;
+        return that.massValue * that.amount;
     }
 
 

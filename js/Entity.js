@@ -13,8 +13,13 @@ function Entity() {
     that.position = new Point(0, 0);
     that.mass = 5;
 
+    that.setMass = function(i_mass){
+        that.mass = i_mass;
+    }
+
     that.applyForce = function (f) {
-        that.accelereation = f.scalarDivide(that.mass);
+        f.scalarDivide(that.mass);
+        that.accelereation = f;
         that.speed.add(that.accelereation);
         that.position.add(that.speed);
     }
