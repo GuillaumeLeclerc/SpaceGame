@@ -32,12 +32,13 @@
         myFuel = new Fuel(_fuelAmount, _fuelEfficiency, _fuelMassValue);
         myEngine = new Engine(_engineMass, myFuel, _engineEfficiency, _engineFuelConsumption);
         myRocket = new Rocket(_rocketMass, myEngine);
+        myEngine.rearOn = true;
 
 
 
 
         for (var i = 0; i < 100; i++) {
-            myRocket.nextStep(myPlanet);
+            myRocket.nextStep(myPlanet , 0.1);
             console.log('X: ' + myRocket.position.x + '\tY: '+ myRocket.position.y );    
         }
 

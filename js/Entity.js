@@ -13,12 +13,19 @@ function Entity() {
     that.position = new Point(0, 0);
     that.mass = 5;
 
-    that.applyForce = function (f,timeStep) {
-        that.accelereation = f.scalarDivide(that.mass);
-        that.speed.add(that.accelereation*timeStep);
+    that.setMass = function(i_mass){
+        that.mass = i_mass;
     }
 
-    that.move = function () {
-        that.position.add(that.speed);
+    that.applyForce = function (f , timeStep) {
+        f.scalarDivide(that.mass);
+        that.accelereation = f;
+        var changeSpeed = new Point(that.accelereation.x, that.accelereation.y);
+        changeSpeed.scalarMultiply(timeStep);
+        that.speed.add(changeSpeed);
+        var changingPosition = new Point(that.speed.x , that.speed.y);
+        changingPosition.scalarMultiply(timeStep);
+        that.position.add(changingPosition);
     }
+
 }

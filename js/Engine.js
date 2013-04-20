@@ -26,7 +26,7 @@ function Engine(i_mass , i_fuel , i_efficiency , i_fuelConsumption) {
         tempRight.scalarMultiply(that.thrusterEnergy * that.rightOn);
         if (that.rearOn)
         {
-            tempRear.multiply(that.fuel.getEnergy(that.fuelConsumption) * that.efficiency);
+            tempRear.scalarMultiply(that.fuel.getEnergy(that.fuelConsumption) * that.efficiency);
         }
         else {
             tempRear = new Point(0, 0);
