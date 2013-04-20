@@ -7,8 +7,39 @@
 </head>
 <body>
 
-
+    <script src="js/Point.js"></script>
     <script src="js/Entity.js"></script>
+
+    <script src="js/Fuel.js"></script>
+    <script src="js/Engine.js"></script>
     <script src="js/Rocket.js"></script>
+     
+    <script>  
+
+        _fuelAmount=10;
+        _fuelEfficiency=1;
+        _fuelMassValue=1;
+
+        _engineMass=100;
+        _engineEfficiency=0.8;
+        _engineFuelConsumption=0.9;
+
+        _rocketMass=1000;
+
+        myFuel = new Fuel(_fuelAmount, _fuelEfficiency, _fuelMassValue);
+        myEngine = new Engine(_engineMass, myFuel, _engineEfficiency, _engineFuelConsumption);
+        myRocket = new Rocket(_rocketMass, myEngine);
+
+        
+
+
+        for (var i = 0; i < 100; i++) {
+            myRocket.nextStep();
+            console.log('X: ' + myRocket.position.x + '\tY: '+ myRocket.position.y );    
+        }
+
+ 
+    </script>
+
 </body>
 </html>
