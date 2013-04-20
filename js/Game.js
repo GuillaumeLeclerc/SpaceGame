@@ -41,10 +41,11 @@ function Game(canvasId , entryPoint) {
     mainCanvas.height = mainCanvas.clientHeight;
     var mainContext = mainCanvas.getContext("2d");
 
-    var imagesToLoad = {
-        rocket : "img/rocket"
+    that.imagesToLoad = {
+        rocket : "images/rocket.png"
     };
 
+    that.imageProviders = new Array();
 
     that.data = {
         rocket: myRocket,
@@ -90,7 +91,8 @@ function Game(canvasId , entryPoint) {
     }
 
     that.changePresenter = function (nextPresenter) {
-
+        that.firstPresenter = true;
+        that.currentPresenter = nextPresenter;
     }
 
     that.onPointerUp = function (evt) {
@@ -106,10 +108,27 @@ function Game(canvasId , entryPoint) {
     that.setUp = function(){
         that.data.canvas.addEventListener("PointerDown", that.onPointerDown, false);
         that.data.canvas.addEventListener("PointerUp", that.onPointerUp, false);
+        for (var index in that.imagesToLoad) {
+            var image = that.imagesToLoad[index];
+            that.imageProviders.push(new ImageProvider(image, that.imageLoaded()));
+        }
+    }
+
+    that.imageLoaded = function () {
+        for (var index in that.imageProviders) {
+            var provider = that.imageProviders[index];
+            if (!provider.loaded) {
+                return;
+            }
+        }
+        that.endSetUp();
     }
 
     that.start = function () {
-        that.setUp();
+        that.setUp();        
+    }
+
+    that.endSetUp = function () {
         that.lastLoop = new Date().getMilliseconds();
         that.innerLoop();
     }
