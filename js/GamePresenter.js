@@ -36,8 +36,7 @@ function GamePresenter(parent)
 		that.rocket.position = new Point(0,0);
 		that.rocket.speed = new Point(0,0);
 		
-		that.rocketImage = new Image();
-   	 	that.rocketImage.src = "images/rocket.gif";
+		that.rocketImage = that.parent.data.images.rocket;
    	 	// 180m is the height of a standard rocket
 	}
 	
@@ -60,14 +59,14 @@ function GamePresenter(parent)
 		var clickY = evt.clientY;
 		
 		// Check if the event is left or right
-		if ((x >= 0 && x <= (that.width / 3)) && (y >= (2/3*that.height) && y <= that.height))
+		if ((clickX >= 0 && clickX <= (that.width / 3)) && (clickY >= (2/3*that.height) && clickY <= that.height))
 		{ 
 	    	// Left move detected
 	    	that.leftPressedID = evt.pointerID;
 	    	that.leftPressed = true;
 		}
 	
-		if ((x >= (2/3*that.width) && x <= that.width) && (y >= (2/3*that.height) && y <= that.height))
+		if ((clickX >= (2/3*that.width) && clickX <= that.width) && (clickY >= (2/3*that.height) && clickY <= that.height))
 		{ 
 	    	// Right move detected
 	    	that.rightPressedID = evt.pointerID;
@@ -97,7 +96,8 @@ function GamePresenter(parent)
 			that.rocket.engine.leftOn = false;
 		}
 		
-		//that.rocket.nextStep(that.parent.data.planet, timeStep);
+		//that.rocket.engine.leftOn = true;
+		that.rocket.nextStep(that.parent.data.planet, timeStep);
 		that.displayStage();
 		return -1;
 	}

@@ -54,7 +54,7 @@ function Game(canvasId , entryPoint) {
         planet: myPlanet,
         canvas: mainCanvas,
         canvasContext: mainContext,
-        images: new Array()
+        images: {}
     };
 
     that.presenters = {
@@ -76,9 +76,10 @@ function Game(canvasId , entryPoint) {
     that.innerLoop = function()
     {
         var currentTime = new Date().getMilliseconds();
-        var timeSpan = that.lastLoop - currentTime;
+        var timeSpan = currentTime - that.lastLoop;
         if (that.firstPresenter) {
             that.getCurrentPresenter().setUp();
+            that.firstPresenter = false;
         }
         var answer = that.presenters[that.currentPresenter].nextStep(timeSpan/1000);
         if (answer != -1)
@@ -110,7 +111,9 @@ function Game(canvasId , entryPoint) {
         that.data.canvas.addEventListener("PointerUp", that.onPointerUp, false);
         for (var index in that.imagesToLoad) {
             var image = that.imagesToLoad[index];
-            that.imageProviders.push(new ImageProvider(image, that.imageLoaded()));
+            var img = new ImageProvider(image, that.imageLoaded);
+            that.imageProviders.push(img);
+            that.data.images[index] = img.base;
         }
     }
 
