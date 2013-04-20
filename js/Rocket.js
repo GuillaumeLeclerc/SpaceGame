@@ -3,12 +3,23 @@
 /// <reference path="Fuel.js" />
 
 
-function Rocket(i_fuel) {
-    var that = this;
-    that.fuel = i_fuel;
 
+function Rocket(i_mass , i_engine) {
+    var that = this;
     that.skeletonMass = 0;
-    
+    that.engine = i_engine;
+
+    that.updateMass = function () {
+        that.mass = that.skeletonMass + that.engine.getMass();
+    }
+
+    that.nextStep = function () {
+
+    }
+
+
+
+
 
 
 
