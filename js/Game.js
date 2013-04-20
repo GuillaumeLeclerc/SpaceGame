@@ -28,12 +28,15 @@ function Game(canvasId , entryPoint) {
     var _rocketMass=1000;
     var _planetMass=5.97219E24;
     var _planetRadius=6.371E6;
+    var _engineMass=100;
+    var _engineEfficiency=0.8;
+    var _engineFuelConsumption=0.9;
     var myPlanet = new Planet(_planetMass, _planetRadius);
     var myFuel = new Fuel(_fuelAmount, _fuelEfficiency, _fuelMassValue);
     var myEngine = new Engine(_engineMass, myFuel, _engineEfficiency, _engineFuelConsumption);
     var myRocket = new Rocket(_rocketMass, myEngine);
 
-    var mainCanvas = document.getElementById("mainCanvas");
+    var mainCanvas = document.getElementById(canvasId);
     mainCanvas.width = mainCanvas.clientWidth;
     mainCanvas.height = mainCanvas.clientHeight;
     var mainContext = mainCanvas.getContext("2d");

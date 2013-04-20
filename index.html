@@ -7,8 +7,6 @@
 </head>
 <body>
 	<canvas id="mainCanvas" width="800" height="600" style="z-index: 1; position:absolute; left:0px; top:0px;"></canvas>
-    <canvas id="leftCanvas" width="200" height="200" style="z-index: 2; position:absolute; left:0px; top:400px;"></canvas>
-    <canvas id="rightCanvas" width="200" height="200" style="z-index: 3; position:absolute; left:600px; top:400px;"></canvas>
 
     <script src="js/Planet.js"></script>
     <script src="js/Point.js"></script>
@@ -17,51 +15,12 @@
     <script src="js/Engine.js"></script>
     <script src="js/Rocket.js"></script>
     <script src="js/Hand.js"></script>
-    <script src="js/TouchController.js"></script>
+    <script src="js/GamePresenter.js"></script>
+    <script src="js/Game.js"></script>
      
     <script>  
-
-        _fuelAmount=10;
-        _fuelEfficiency=1;
-        _fuelMassValue=1;
-
-        _engineMass=100;
-        _engineEfficiency=0.8;
-        _engineFuelConsumption=0.9;
-
-        _rocketMass=1000;
-
-        _planetMass=5.97219E24;
-        _planetRadius=6.371E6;
-
-        myPlanet = new Planet(_planetMass, _planetRadius);
-        myFuel = new Fuel(_fuelAmount, _fuelEfficiency, _fuelMassValue);
-        myEngine = new Engine(_engineMass, myFuel, _engineEfficiency, _engineFuelConsumption);
-        myRocket = new Rocket(_rocketMass, myEngine);
-        myEngine.rearOn = true;
-
-		// Stage specific variables
-		var rocketInitX = 370;
-		var rocketInitY = 450;
-		var rocketWidth = 60;
-		var rocketHeight = 100;
-
-		var lastLoop; // holds the time difference between two iterations
-		
-		document.addEventListener("DOMContentLoaded", setupStage, false);
-		
-		while(1)
-		{
-			
-		}
-				
-
-        for (var i = 0; i < 100; i++) {
-            myRocket.nextStep(myPlanet , 0.1);
-            console.log('X: ' + myRocket.position.x + '\tY: '+ myRocket.position.y );    
-        }
-
- 
+		var game = new Game("mainCanvas", "game");
+		game.start();
     </script>
 
 </body>

@@ -13,21 +13,29 @@ function GamePresenter(parent)
 {
 	// Attributes and methods
 	var that = this;
-	var that.parent = parent;
-	var that.canvas = parent.data.canvas;
-	var that.context = parent.data.canvasContext;
-	var that.width = parent.data.canvas.width;
-	var that.height = parent.data.canvas.height;
+	that.parent = parent;
+	that.canvas = parent.data.canvas;
+	that.context = parent.data.canvasContext;
+	that.width = parent.data.canvas.width;
+	that.height = parent.data.canvas.height;
 	
-	// Rocket
-	var that.rocket = parent.data.rocket;
+	var rocketImage = new Image();
 	
-	// Flag showing if the screen has been touched
-	var that.leftPressed = false;
-	var that.rightPressed = false;
+	that.setUp = function()
+	{
+		// Rocket
+		that.rocket = parent.data.rocket;
 	
-	var that.leftPressedID = -1;
-	var that.rightPressedID = -1;
+		// Flag showing if the screen has been touched
+		that.leftPressed = false;
+		that.rightPressed = false;
+	
+		that.leftPressedID = -1;
+		that.rightPressedID = -1;
+	
+		that.rocket.position = new Point(0,0);
+		that.rocket.speed = new Point(0,0);
+	}
 	
 	that.pointerUp = function(evt)
 	{
@@ -85,25 +93,31 @@ function GamePresenter(parent)
 			that.rocket.engine.leftOn = false;
 		}
 		
-		that.rocket.nextStep(that.parent.planet, timeStep);
-		
+		//that.rocket.nextStep(that.parent.data.planet, timeStep);
+		that.displayStage();
 		return -1;
 	}
 	
-	var displayStage = function()
+	that.displayStage = function()
 	{
 		that.context.fillStyle = "rgba(50, 50, 50, 1)";
    	 	that.context.fillRect(0, 0, that.canvas.width, that.canvas.height);
    	 	
-   	 	var rocketImage = that.parent.images.rocket1;
+   	 	//var rocketImage = that.parent.images.rocket1;
+   	 	var rocketImage = new Image();
+   	 	rocketImage.src = "images/rocket.gif";
    	 	// 180m is the height of a standard rocket
-   	 	var aspectRatio = 180 / that.rocketImage.height;
+   	 	rocketImage.style.height = "100px";
+		rocketImage.style.width = "60px";
+   	 	
+   	 	//var aspectRatio = 180 / that.rocketImage.height;
+   	 	var aspectRatio = 180 / 100;
    	 	var rocketXinMeters = that.rocket.position.x;
-   	 	var rocketXinPixels = aspectRatio / rocketXinMeters;
+   	 	var rocketXinPixels = rocketXinMeters / aspectRatio;
    	 	
    	 	rocketImage.onload = function()
     	{
-    		that.context.drawImage(rocketImage, rocketXinPixels, that.canvas.height-that.rocketImage.height, rocketImage.width, rocketImage.height);
+    		that.context.drawImage(rocketImage, rocketXinPixels + that.canvas.width/2 - 30, that.canvas.height - 100, 60, 100);
   		}
 	}
 }
