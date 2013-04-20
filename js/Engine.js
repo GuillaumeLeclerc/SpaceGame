@@ -18,7 +18,7 @@ function Engine(i_mass , i_fuel , i_efficiency , i_fuelConsumption) {
         return that.mass + that.fuel.getMass();
     }
 
-    that.getForce = function () {
+    that.getForce = function (timespan) {
         var tempLeft = new Point(1, 0);
         var tempRight = new Point(-1, 0);
         var tempRear = new Point(0, 1);
@@ -26,7 +26,7 @@ function Engine(i_mass , i_fuel , i_efficiency , i_fuelConsumption) {
         tempRight.scalarMultiply(that.thrusterEnergy * that.rightOn);
         if (that.rearOn)
         {
-            tempRear.scalarMultiply(that.fuel.getEnergy(that.fuelConsumption) * that.efficiency);
+            tempRear.scalarMultiply(that.fuel.getEnergy(that.fuelConsumption * timespan) * that.efficiency);
         }
         else {
             tempRear = new Point(0, 0);

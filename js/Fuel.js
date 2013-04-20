@@ -7,9 +7,8 @@ function Fuel(amount_,fuelEfficiency_,mass_value_) {
     that.amount = amount_;
     that.massValue =  mass_value_;
 
-    /*that.fuelEfficiency = fuelEfficiency_;
-    */
-    that.fuelEfficiency = 1;
+    that.fuelEfficiency = fuelEfficiency_;
+ 
 
 
     that.getEnergy = function (fuelConsumption_) {

@@ -19,7 +19,7 @@ function Rocket(i_mass , i_engine) {
         that.updateMass();
         var resultant = new Point(0, -1);
         resultant.scalarMultiply(planet.getGravity(that.mass, that.position.y));
-        resultant.add(that.engine.getForce());
+        resultant.add(that.engine.getForce(timeStep));
         that.applyForce(resultant,timeStep);
     }
 }
