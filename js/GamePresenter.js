@@ -15,10 +15,22 @@ function GamePresenter(parent)
 	var that = this;
 	var that.parent = parent;
 	var that.canvas = parent.data.canvas;
+	var that.context = parent.data.canvas.context;
+	var that.width = parent.data.canvas.width;
+	var that.height = parent.data.canvas.height;
+	
+	// Rocket
+	var that.rocket = parent.data.rocket;
+	
+	// Flag showing if the screen has been touched
+	var that.leftPressed = false;
+	var that.rightPressed = false;
 	
 	that.pointerUp = function(evt)
 	{
 		evt.preventDefault();
+		that.leftPressed = false;
+	    that.rightPressed = false;
 	}	
 	
 	that.pointerDown = function(evt)
@@ -27,34 +39,28 @@ function GamePresenter(parent)
 		var clickX = evt.clientX;
 		var clickY = evt.clientY;
 		
+	    that.leftPressed = false;
+	    that.rightPressed = false;
+		
 		// Check if the event is left or right
-		
-		if ((x >= 0 && x <= 200) && (y >= 400 && y <= 600))
+		if ((x >= 0 && x <= (that.width / 3)) && (y >= (2/3*that.height) && y <= that.height))
 		{ 
-	    	//alert("Left captured"+x+","+y);
-	    	// Move rocket left
-	    	window.pressing = true;
-	    	var o = 0 - offset;
-	    	buttonPressed(o);
+	    	// Left move detected
+	    	that.leftPressed = true;
+	    	that.rightPressed = false;
 		}
 	
-		if ((x >= 600 && x <= 800) && (y >= 400 && y <= 600))
+		if ((x >= (2/3*that.width) && x <= that.width) && (y >= (2/3*that.height) && y <= that.height))
 		{ 
-	    	// alert("Right captured"+x+","+y);
-	    	// Move rocket right
-	    	window.pressing = true;
-	    	buttonPressed(offset);
+	    	// Right move detected
+	    	that.leftPressed = false;
+	    	that.rightPressed = true;
 		}
-	}
-	
-	that.displayer = function()
-	{
-		
 	}
 	
 	that.nextStep = function()
 	{
-	
+		
 	}
 }
 
