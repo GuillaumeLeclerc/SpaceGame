@@ -1,11 +1,11 @@
 /// <reference path="Point.js" />
 /// <reference path="Entity.js" />
+/// <reference path="Fuel.js" />
 
 
-function Rocket() {
+function Rocket(i_fuel) {
     var that = this;
-
-    that.fuel = 0;
+    that.fuel = i_fuel;
 
     that.skeletonMass = 0;
     

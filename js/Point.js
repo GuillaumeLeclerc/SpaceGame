@@ -1,7 +1,7 @@
-﻿function Point(x, y) {
+﻿function Point(i_x, i_y) {
     var that = this;
-    that.x = x;
-    that.y = y;
+    that.x = i_x;
+    that.y = i_y;
 
     that.add = function (p) {
         that.x += p.x;
