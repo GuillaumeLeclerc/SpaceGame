@@ -23,7 +23,7 @@ function Game(canvasId , entryPoint) {
 
     var _fuelAmount=1;
     var _fuelEfficiency=3312000;
-    var _fuelMassValue=1;
+    var _fuelMassValue=0.07;
     var _qsumption=0.9;
     var _rocketMass=1000;
     var _planetMass=5.97219E24;
