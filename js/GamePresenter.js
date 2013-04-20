@@ -19,7 +19,7 @@ function GamePresenter(parent)
 	that.width = parent.data.canvas.width;
 	that.height = parent.data.canvas.height;
 	
-	var rocketImage = new Image();
+	
 	
 	that.setUp = function()
 	{
@@ -35,6 +35,10 @@ function GamePresenter(parent)
 	
 		that.rocket.position = new Point(0,0);
 		that.rocket.speed = new Point(0,0);
+		
+		that.rocketImage = new Image();
+   	 	that.rocketImage.src = "images/rocket.gif";
+   	 	// 180m is the height of a standard rocket
 	}
 	
 	that.pointerUp = function(evt)
@@ -103,21 +107,19 @@ function GamePresenter(parent)
 		that.context.fillStyle = "rgba(50, 50, 50, 1)";
    	 	that.context.fillRect(0, 0, that.canvas.width, that.canvas.height);
    	 	
-   	 	//var rocketImage = that.parent.images.rocket1;
-   	 	var rocketImage = new Image();
-   	 	rocketImage.src = "images/rocket.gif";
-   	 	// 180m is the height of a standard rocket
-   	 	rocketImage.style.height = "100px";
-		rocketImage.style.width = "60px";
+   	 	
+   	 	that.rocketImage.style.height = "100px";
+		that.rocketImage.style.width = "60px";
    	 	
    	 	//var aspectRatio = 180 / that.rocketImage.height;
    	 	var aspectRatio = 180 / 100;
    	 	var rocketXinMeters = that.rocket.position.x;
    	 	var rocketXinPixels = rocketXinMeters / aspectRatio;
    	 	
-   	 	rocketImage.onload = function()
-    	{
-    		that.context.drawImage(rocketImage, rocketXinPixels + that.canvas.width/2 - 30, that.canvas.height - 100, 60, 100);
-  		}
+   	 	that.context.drawImage(that.rocketImage, rocketXinPixels + that.canvas.width/2 - 30, that.canvas.height - 100, 60, 100);
+   	 	//that.rocketImage.onload = function()
+    	//{
+    		
+  		//}
 	}
 }
