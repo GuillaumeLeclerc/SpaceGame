@@ -18,6 +18,7 @@ function Star(iX, iY, sX, sY, distance, color) { //partial class Particule
     var me = this;
     this.Data = new Particule(iX, iY);
     this.Type = "Star";
+    this.spaceObject = 0;
     this.Data.LifeTime = 1000 * distance;
     this.Data.Vitesse.x = sX / distance / 5;
     this.Data.Vitesse.y = sY / distance / 5;
