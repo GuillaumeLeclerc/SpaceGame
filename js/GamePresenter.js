@@ -220,7 +220,11 @@ function GamePresenter(parent)
    	 	that.context.fillRect(53, 85, 112 * (that.rocket.engine.fuel.amount / that.maxFuel), 12);
    	 	that.context.fillRect(that.width - 10, 20, 5, that.height - 40);
    	 	wrapText(that.context, "Start", +that.width - 27, that.height - 7, 500, 20);
-   	 	wrapText(that.context, "End", +that.width - 24, 13 , 500, 20);
+   	 	wrapText(that.context, "End", +that.width - 24, 13, 500, 20);
+   	 	that.context.fillRect(53, 85, 112 * (that.rocket.engine.fuel.amount / that.maxFuel), 12);
+   	 	that.context.fillRect(that.width - 10, 20, 5, that.height - 40);
+   	 	wrapText(that.context, "Start", +that.width - 27, that.height - 7, 500, 20);
+   	 	wrapText(that.context, "End", +that.width - 24, 13, 500, 20);
     	//{
     		
   		//}
