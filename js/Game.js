@@ -64,6 +64,7 @@ function Game(canvasId , entryPoint) {
     that.imageProviders = new Array();
 
     that.data = {
+		capacity: myFuel.amount,
         rocket: myRocket,
         fuel: myFuel,
         engine: myEngine,

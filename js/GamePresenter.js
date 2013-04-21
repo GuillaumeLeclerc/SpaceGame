@@ -68,6 +68,7 @@ function GamePresenter(parent)
 
 	    // Rocket
 	    that.rocket = parent.data.rocket;
+		that.rocket.engine.fuel.amount = parent.data.capacity;
 
 	    // Flag showing if the screen has been touched
 	    that.leftPressed = false;

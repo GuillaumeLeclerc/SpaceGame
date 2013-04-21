@@ -98,7 +98,7 @@
 				that.ctx.font = "18px Arial";
 				that.ctx.fillStyle="#000000";
 				
-				that.game.data.fuel.amount *= 1.4;
+				that.game.data.capacity *= 1.4;
             }
         }
     }
