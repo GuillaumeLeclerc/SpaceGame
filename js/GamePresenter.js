@@ -202,16 +202,55 @@ function GamePresenter(parent)
    	 	//wrapText(that.context, "star = " + that.stars[0].Data.Position.x + " " + that.stars[0].Data.Position.y, 0, 60, 100, 20);
    	 	//console.log(timeStep);
    	 	var rCoords = that.rocket.getCoordInCoordinateSystem(that.rocket.position, that.height, that.rocket.displaySize.y);
-   	 	that.context.drawImage(that.rocketImage, rCoords.x + Math.random() * 3 - 1.5, rCoords.y + Math.random() * 3 - 1.5, that.rocket.displaySize.x, that.rocket.displaySize.y);
+   	 	
+   	 	var rCoords.x = rCoords.x + Math.random() * 3 - 1.5;
+   	 	var rCoords.y = rCoords.y + Math.random() * 3 - 1.5;
+   	 	
+   	 	if (rCoords.x < 0)
+   	 	{
+   	 		rCoords.x = 0;
+   	 	}
+   	 	
+   	 	if (rCoords.x > that.width - that.rocket.displaySize.y)
+   	 	{
+   	 		rCoords.x = that.width - that.rocket.displaySize.y;
+   	 	}
+   	 	
+   	 	that.context.drawImage(that.rocketImage, rCoords.x, rCoords.y, that.rocket.displaySize.x, that.rocket.displaySize.y);
 	    //that.rocketImage.onload = function()
    	 	
    	 	var asteroid = new Point(that.rocket.position.x + 100, that.rocket.position.y + 100);
    	 	var aCoords = that.rocket.getCoordInCoordinateSystem(asteroid, that.height, 150);
    	 	var satellite = new Point(that.rocket.position.x - 100, that.rocket.position.y + 100);
    	 	var sCoords = that.rocket.getCoordInCoordinateSystem(satellite, that.height, 150);
-   	 	that.context.drawImage(that.asteroidImage, aCoords.x, aCoords.y, 150, 150);
+   	 	
+   	 	if (aCoords.x < 0)
+   	 	{
+   	 		aCoords.x = 0;
+   	 	}
+   	 	
+   	 	if (aCoords.x > that.width - 150)
+   	 	{
+   	 		aCoords.x = that.width - 150;
+   	 	}
+   	 	
+   	 	if (sCoords.x < 0)
+   	 	{
+   	 		sCoords.x = 0;
+   	 	}
+   	 	
+   	 	if (sCoords.x > that.width - 150)
+   	 	{
+   	 		sCoords.x = that.width - 150;
+   	 	}
+   	 	
+   	 	that.context.drawImage(that.asteroidImage, a.Coords.x, aCoords.y, 150, 150);
+   	 	
    	 	that.context.drawImage(that.satelliteImage, sCoords.x, sCoords.y, 150, 150);
+   	 	
    	 	that.context.drawImage(that.parent.data.images.UI, 0, 0);
+   	 	
+   	 	
    	 	that.context.fillStyle = "rgb(0,150,0)";
    	 	wrapText(that.context, "" + Math.round(that.rocket.speed.y*1000)/1000, 60, 14.5, 500, 20);
    	 	wrapText(that.context, "" + Math.round(that.rocket.position.y * 1000) / 1000, 60, 41.5, 500, 20);
