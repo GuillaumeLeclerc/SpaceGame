@@ -210,7 +210,7 @@ function GamePresenter(parent)
 	            that.asteroids.splice(i, 1);
 	            that.NBAsteroids--;
 	            that.rocket.speed.y /= 2;
-	            that.rocket.offset = -20;
+	            that.rocket.screenPosition.y = 0;
 	        }
 
 	        else if (rTopLeft.x < aBottomLeft.x && aBottomLeft.x < rTopRight.x && aBottomLeft.y > rTopLeft.y && rBottomLeft.y > aBottomLeft.y) {
@@ -219,7 +219,7 @@ function GamePresenter(parent)
 	            that.asteroids.splice(i, 1);
 	            that.NBAsteroids--;
 	            that.rocket.speed.y /= 2;
-	            that.rocket.offset = -20;
+	            that.rocket.screenPosition.y = 0;
 
 	        }
 	    }
@@ -311,7 +311,7 @@ function GamePresenter(parent)
 
 	    that.context.drawImage(parent.data.images.tinyImage, that.width-20, that.height - (that.rocket.position.y / parent.data.height) * (that.height - 45) - 30, 20, 30);
 
-	    that.context.globalAlpha = 0.1;
+	    that.context.globalAlpha = 0.3;
 	    that.context.drawImage(parent.data.images.controllerLeft, 30, that.height - 100, 100, 100);
 	    that.context.drawImage(parent.data.images.controllerRight, that.width - 130, that.height - 100, 100, 100);
 	    that.context.globalAlpha = 1;
