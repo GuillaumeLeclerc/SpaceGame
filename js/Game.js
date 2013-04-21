@@ -75,7 +75,7 @@ function Game(canvasId , entryPoint) {
 	that.upgrade = function() {
 		if (that.data.currentLevel == 1) {
 			var _fuelAmount=200;
-			var _fuelEfficiency=3312000;
+			var _fuelEfficiency=3312000000;
 			var _fuelMassValue=0.07;
 			var _rocketMass=1700; //kg
 			var _planetMass=5.97219E24;

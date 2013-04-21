@@ -227,6 +227,14 @@ function GamePresenter(parent)
 	    //that.rocket.engine.leftOn = true;
 	    that.rocket.nextStep(that.parent.data.planet, timeStep);
 	    that.displayStage(timeStep);
+
+	    if (that.rocket.position.y >= parent.data.height) {
+	        alert("Congratulations: You have passed this level");
+	        return "question";
+
+	    }
+
+
 	    return -1;
 	}
 

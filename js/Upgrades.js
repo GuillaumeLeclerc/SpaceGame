@@ -83,7 +83,6 @@
             }
             if (evt.y >= 400 && evt.y <= 500){
                 // fuel amount
-				alert("muie");
                 that.game.data.rocket.fuelamountlvl++;
                 that.ctx.clearRect(50,400,that.canvas.width-100,100);
                 that.ctx.strokeRect(50,400,that.canvas.width-100,100);
@@ -102,7 +101,7 @@
     that.nextStep = function(){
         if (that.over){
             //alert ("over");
-            return "question";
+            return "introduction";
         }
         else {
             return -1;
