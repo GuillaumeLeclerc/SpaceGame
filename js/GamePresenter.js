@@ -200,6 +200,7 @@ function GamePresenter(parent)
    	 	that.context.fillStyle = "rgba(255, 255, 255, 1)";
    	 	
    	 	//wrapText(that.context, "star = " + that.stars[0].Data.Position.x + " " + that.stars[0].Data.Position.y, 0, 60, 100, 20);
+<<<<<<< HEAD
    	 	//console.log(timeStep);
    	 	var rCoords = that.rocket.getCoordInCoordinateSystem(that.rocket.position, that.height, that.rocket.displaySize.y);
    	 	that.context.drawImage(that.rocketImage, rCoords.x + Math.random() * 3 - 1.5, rCoords.y + Math.random() * 3 - 1.5, that.rocket.displaySize.x, that.rocket.displaySize.y);
@@ -218,6 +219,12 @@ function GamePresenter(parent)
    	 	wrapText(that.context, "" + Math.round(that.parent.data.planet.lastGravity * 1000) / 1000, 60, 69, 500, 20);
    	 	that.context.fillStyle = "rgb(0,200,0)";
    	 	that.context.fillRect(53, 85, 112 * ( that.rocket.engine.fuel.amount / that.maxFuel), 12);
+=======
+   	 	console.log(timeStep);
+   	 	that.context.drawImage(that.rocketImage, rocketXinPixels + that.canvas.width/2 - 40, that.canvas.height - 170, 80, 150);   	 	//that.rocketImage.onload = function()
+   	 	that.context.drawImage(that.satelliteImage, 100, 100, 150, 150);
+   	 	that.context.drawImage(that.asteroidImage, 400, 200, 150, 150);
+>>>>>>> not much
     	//{
     		
   		//}
