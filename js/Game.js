@@ -21,16 +21,17 @@ window.requestAnimFrame =
 function Game(canvasId , entryPoint) {
     var that= this;
 
-    var _fuelAmount=100;
+    //first level rocket
+	var _fuelAmount=200;
     var _fuelEfficiency=3312000;
     var _fuelMassValue=0.07;
-    var _qsumption=0.9;
-    var _rocketMass=1000;
+    var _rocketMass=1700; //kg
     var _planetMass=5.97219E24;
     var _planetRadius=6.371E6;
-    var _engineMass=100;
+    var _engineMass=300;
     var _engineEfficiency=0.8;
-    var _engineFuelConsumption=5;
+    var _engineFuelConsumption=10;
+ 
     var myPlanet = new Planet(_planetMass, _planetRadius);
     var myFuel = new Fuel(_fuelAmount, _fuelEfficiency, _fuelMassValue);
     var myEngine = new Engine(_engineMass, myFuel, _engineEfficiency, _engineFuelConsumption);
@@ -67,15 +68,51 @@ function Game(canvasId , entryPoint) {
         canvas: mainCanvas,
         canvasContext: mainContext,
         images: {},
-        currentLevel: 1,
-        point : 0
+		currentLevel: 0,
+		points: 0
     };
+	
+	that.upgrade = function() {
+		if (that.data.currentLevel == 1) {
+			var _fuelAmount=200;
+			var _fuelEfficiency=3312000;
+			var _fuelMassValue=0.07;
+			var _rocketMass=1700; //kg
+			var _planetMass=5.97219E24;
+			var _planetRadius=6.371E6;
+			var _engineMass=300;
+		    var _engineEfficiency=0.8;
+		    var _engineFuelConsumption=10;
+		 
+			that.data.planet = new Planet(_planetMass, _planetRadius);
+			that.data.fuel = new Fuel(_fuelAmount, _fuelEfficiency, _fuelMassValue);
+			that.data.engine = new Engine(_engineMass, myFuel, _engineEfficiency, _engineFuelConsumption);
+			that.data.rocket = new Rocket(_rocketMass, myEngine);
+		} else if(that.data.currentLevel == 2) {
+			var _fuelAmount=200;
+			var _fuelEfficiency=3312000;
+			var _fuelMassValue=0.07;
+			var _rocketMass=1700; //kg
+			var _planetMass=5.97219E24;
+			var _planetRadius=6.371E6;
+			var _engineMass=300;
+		    var _engineEfficiency=0.8;
+		    var _engineFuelConsumption=10;
+		 
+			that.data.planet = new Planet(_planetMass, _planetRadius);
+			that.data.fuel = new Fuel(_fuelAmount, _fuelEfficiency, _fuelMassValue);
+			that.data.engine = new Engine(_engineMass, myFuel, _engineEfficiency, _engineFuelConsumption);
+			that.data.rocket = new Rocket(_rocketMass, myEngine);
+		} else if(that.data.currentLevel == 3) {
+			//last level
+		}
+	}
 
     that.presenters = {
         homePage: new MainMenu(that),
         setUp: null,
         game: new GamePresenter(that),
-        question: null,
+        question: new Questions(that),
         introduction : new Intro(that)
     };
 
