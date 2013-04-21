@@ -35,6 +35,33 @@ function Questions(game) {
 	
 	that.questions[1] = questionsForLevel1;
 	
+	var questionsForLevel2 = new Array();
+	var question02Answers = ["it is closer to stars", "it is outside of atmosphere", "it is bigger", "images are not better"];
+	questionsForLevel2[0] = new Question("Why are images from Hubble more detailed than those from Earth telescopes?", question02Answers, 1);
+	
+	var question12Answers = ["Soyuz ", "Ariana ", "DC10", "Space shuttle"];
+	questionsForLevel2[1] = new Question("Hubble was carried to space by", question12Answers, 3);
+	
+	var question22Answers = ["infrared", "infraviolet", "ultraviolet", "visible light"];
+	questionsForLevel2[2] = new Question("Hubble does not take images of:", question22Answers, 1);
+	
+	var question32Answers = ["1", "2", "3", "4"];
+	questionsForLevel2[3] = new Question("How many times were astronauts sent to Hubble for maintenance?", question32Answers, 3);
+	
+	var question42Answers = ["Hubble", "End of Low orbit", "International space station", "Moon"];
+	questionsForLevel2[4] = new Question("Which of these is closer to Earth?", question42Answers, 2);
+	
+	that.questions[2] = questionsForLevel2;
+	
+	var questionsForLevel3 = new Array();
+	var question03Answers = ["passes directly over the north pole", "passes over the Equator at the same longitude in each orbit", "passes directly over the south pole", "is dependent on GPS signals"];
+	questionsForLevel3[0] = new Question("What is the distinctive characteristic of a  polar geosynchronous orbit satellite?", question03Answers, 1);
+	
+	var question13Answers = ["weather satellite", "GPS satellite", "missile control", "cellular network coverage"];
+	questionsForLevel3[1] = new Question("What are some applications of these type of satellites?", question13Answers, 0);
+	
+	that.questions[3] = questionsForLevel3;
+	
 	that.setUp = function() {
 		that.currentQuestion = 0;
 		that.currentLevel = 0;

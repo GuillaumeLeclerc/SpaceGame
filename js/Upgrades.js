@@ -66,6 +66,7 @@
 				that.ctx.font = "18px Arial";
 				that.ctx.fillStyle="#000000";
                 
+				that.game.data.rocket.engine.efficiency *= 1.2;
             }
             if (evt.y >= 250 && evt.y <= 350){
                 // fuel ef
@@ -80,6 +81,8 @@
                 that.ctx.fillText("Points: " + that.game.data.points, 350, 40);
 				that.ctx.font = "18px Arial";
 				that.ctx.fillStyle="#000000";
+				
+				that.game.data.fuel.fuelEfficiency *= 1.2;
             }
             if (evt.y >= 400 && evt.y <= 500){
                 // fuel amount
@@ -94,6 +97,8 @@
                 that.ctx.fillText("Points: " + that.game.data.points, 350, 40);
 				that.ctx.font = "18px Arial";
 				that.ctx.fillStyle="#000000";
+				
+				that.game.data.fuel.amount *= 1.4;
             }
         }
     }
