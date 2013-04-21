@@ -71,7 +71,9 @@ function GamePresenter(parent)
 		that.rocket.position = new Point(0,0);
 		that.rocket.speed = new Point(0,0);
 		
-		that.rocketImage = that.parent.data.images.rocket;
+		that.rocketImage = that.parent.data.images.rocket1;
+		that.asteroidImage = that.parent.data.images.asteroid1;
+		that.satelliteImage = that.parent.data.images.satellite1;
    	 	// 180m is the height of a standard rocket
 	}
 	
@@ -179,8 +181,8 @@ function GamePresenter(parent)
    	 	//that.context.fillRect(0, 0, that.canvas.width, that.canvas.height);
    	 	
    	 	
-   	 	that.rocketImage.style.height = "100px";
-		that.rocketImage.style.width = "60px";
+   	 	that.rocketImage.style.height = "150px";
+		that.rocketImage.style.width = "80px";
    	 	
    	 	//var aspectRatio = 180 / that.rocketImage.height; 
    	 	
@@ -189,7 +191,9 @@ function GamePresenter(parent)
    	 	wrapText(that.context, "height = " + that.rocket.position.y, 0, 30, 100, 20);
    	 	//wrapText(that.context, "star = " + that.stars[0].Data.Position.x + " " + that.stars[0].Data.Position.y, 0, 60, 100, 20);
    	 	console.log(timeStep); 	
-   	 	that.backGround.Context.drawImage(that.rocketImage, rocketXinPixels + that.canvas.width/2 - 30, that.canvas.height - 100, 60, 100);   	 	//that.rocketImage.onload = function()
+   	 	that.backGround.Context.drawImage(that.rocketImage, rocketXinPixels + that.canvas.width/2 - 40, that.canvas.height - 170, 80, 150);   	 	//that.rocketImage.onload = function()
+   	 	that.backGround.Context.drawImage(that.satelliteImage, 100, 200, 150, 150);
+   	 	that.backGround.Context.drawImage(that.asteroidImage, 400, 300, 150, 150);   	 	
     	//{
     		
   		//}

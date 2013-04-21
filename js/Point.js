@@ -7,6 +7,12 @@
         that.x += p.x;
         that.y += p.y;
     }
+    
+    that.sub = function (p) {
+        that.x -= p.x;
+        that.y -= p.y;
+    }
+
 
     that.scalarAdd = function(c){
         that.x += c;
