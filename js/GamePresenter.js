@@ -217,7 +217,10 @@ function GamePresenter(parent)
    	 	wrapText(that.context, "" + Math.round(that.rocket.position.y * 1000) / 1000, 60, 41.5, 500, 20);
    	 	wrapText(that.context, "" + Math.round(that.parent.data.planet.lastGravity * 1000) / 1000, 60, 69, 500, 20);
    	 	that.context.fillStyle = "rgb(0,200,0)";
-   	 	that.context.fillRect(53, 85, 112 * ( that.rocket.engine.fuel.amount / that.maxFuel), 12);
+   	 	that.context.fillRect(53, 85, 112 * (that.rocket.engine.fuel.amount / that.maxFuel), 12);
+   	 	that.context.fillRect(that.width - 10, 20, 5, that.height - 40);
+   	 	wrapText(that.context, "Start", +that.width - 27, that.height - 7, 500, 20);
+   	 	wrapText(that.context, "End", +that.width - 24, 13 , 500, 20);
     	//{
     		
   		//}
