@@ -68,7 +68,7 @@ function Game(canvasId , entryPoint) {
     };
 
     that.presenters = {
-        homePage: new MainMenu(),
+        homePage: new MainMenu(that),
         setUp: null,
         game: new GamePresenter(that),
         question : null 
