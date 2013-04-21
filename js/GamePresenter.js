@@ -308,5 +308,12 @@ function GamePresenter(parent)
 	    that.context.fillRect(that.width - 10, 20, 5, that.height - 40);
 	    wrapText(that.context, "Start", +that.width - 27, that.height - 7, 500, 20);
 	    wrapText(that.context, "End", +that.width - 24, 13, 500, 20);
+
+	    that.context.drawImage(parent.data.images.tinyImage, that.width-20, that.height - (that.rocket.position.y / parent.data.height) * (that.height - 30) - 30, 20, 30);
+
+	    that.context.globalAlpha = 0.1;
+	    that.context.drawImage(parent.data.images.controllerLeft, 30, that.height - 100, 100, 100);
+	    that.context.drawImage(parent.data.images.controllerRight, that.width - 130, that.height - 100, 100, 100);
+	    that.context.globalAlpha = 1;
 	}
 }

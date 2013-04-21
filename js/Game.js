@@ -56,6 +56,9 @@ function Game(canvasId , entryPoint) {
         MenuBG: "images/backMenu.jpg",
         logo: "images/logo.png",
         introduction: "images/introduction.png",
+        tinyImage: "images/rocket1_only_small.png",
+         controllerLeft: "images/controller_left.png",
+          controllerRight: "images/controller_right.png"
     };
 
     that.imageProviders = new Array();
