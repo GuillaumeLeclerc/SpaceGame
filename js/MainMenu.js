@@ -13,7 +13,7 @@ function MainMenu(i_parent) {
 
     that.nextStep = function () {
         if (that.mustQuit) {
-            return "game";
+            return "introduction";
         }
         else
         {

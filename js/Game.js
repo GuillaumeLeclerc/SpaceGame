@@ -73,7 +73,8 @@ function Game(canvasId , entryPoint) {
         homePage: new MainMenu(that),
         setUp: null,
         game: new GamePresenter(that),
-        question : null 
+        question: null,
+        introduction : new Intro(that)
     };
 
     that.lastLoop = new Date().getMilliseconds();
