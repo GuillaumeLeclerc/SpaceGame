@@ -79,7 +79,7 @@ function Questions(game) {
 			}
 			//he answered
 			if (answer == that.q.correctAnswerIndex) {
-				that.game.data.score++;
+				that.game.data.points++;
 				that.game.data.canvasContext.fillStyle = '#00FF00';
 				wrapText(that.game.data.canvasContext, that.q.answers[answer], 50, 50*(answer+2), that.game.data.canvas.width-50, 20);
 			} else {

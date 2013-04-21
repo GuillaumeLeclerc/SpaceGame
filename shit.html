@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+
+	<div id="title">Touch input control test</div>
+    <canvas id="mainCanvas" width="800" height="600" style="z-index: 1; position:absolute; left:0px; top:0px;"></canvas>
+    <canvas id="leftCanvas" width="200" height="200" style="z-index: 2; position:absolute; left:0px; top:400px;"></canvas>
+    <canvas id="rightCanvas" width="200" height="200" style="z-index: 3; position:absolute; left:600px; top:400px;"></canvas>
+	
+    <script src="js/Planet.js"></script>
+    <script src="js/Point.js"></script>
+    <script src="js/Entity.js"></script>
+    <script src="js/Fuel.js"></script>
+    <script src="js/Engine.js"></script>
+    <script src="js/Rocket.js"></script>
+	<script src="js/Question.js"></script>
+	<script src="js/Questions.js"></script>
+	<script src="hand-1.0.10.js"></script>
+     
+    <script>  
+		var gameConstructor = function() {
+			var that = this;
+			that.data = {
+				canvas : document.getElementById("mainCanvas"),
+				canvasContext : document.getElementById("mainCanvas").getContext("2d"),
+				currentLevel : 0
+			}
+		}
+		var game = new gameConstructor();
+		
+		
+		var questions = new Questions(game);
+		questions.setUp();
+		
+		document.getElementById("mainCanvas").addEventListener("PointerUp", questions.pointUp, false);
+		setInterval(questions.nextStep, 33);
+    </script>
+</body>
+</html>
