@@ -42,7 +42,9 @@ function Game(canvasId , entryPoint) {
     var mainContext = mainCanvas.getContext("2d");
 
     that.imagesToLoad = {
-        rocket : "images/rocket.png"
+        rocket1 : "images/rocket1.png",
+        rocket2 : "images/rocket2.png",
+        rocket3 : "images/rocket3.png"
     };
 
     that.imageProviders = new Array();

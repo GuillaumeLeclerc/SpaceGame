@@ -61,7 +61,7 @@ function GamePresenter(parent)
 		that.rocket.position = new Point(0,0);
 		that.rocket.speed = new Point(0,0);
 		
-		that.rocketImage = that.parent.data.images.rocket;
+		that.rocketImage = that.parent.data.images.rocket2;
    	 	// 180m is the height of a standard rocket
 	}
 	
