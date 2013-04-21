@@ -123,11 +123,11 @@ function GamePresenter(parent)
 		
 		//that.rocket.engine.leftOn = true;
 		that.rocket.nextStep(that.parent.data.planet, timeStep);
-		that.displayStage();
+		that.displayStage(timeStep);
 		return -1;
 	}
 	
-	that.displayStage = function()
+	that.displayStage = function(timeStep)
 	{
 		that.context.fillStyle = "rgba(50, 50, 50, 1)";
    	 	that.context.fillRect(0, 0, that.canvas.width, that.canvas.height);
@@ -143,7 +143,9 @@ function GamePresenter(parent)
    	 	
    	 	that.context.fillStyle = "rgba(255, 255, 255, 1)";
    	 	wrapText(that.context, "Speed = " + that.rocket.speed.x, 0, 30, 100, 20);
-   	 	wrapText(that.context, "Acceleration = " + that.rocket.accelereation.x, 0, 60, 100, 20);   	 	
+   	 	wrapText(that.context, "Acceleration = " + that.rocket.accelereation.x, 0, 60, 100, 20);   
+   	 	wrapText(that.context, "Time Step = " + timeStep, 0, 90, 100, 20);   	
+   	 	console.log(timeStep); 	
    	 	that.context.drawImage(that.rocketImage, rocketXinPixels + that.canvas.width/2 - 30, that.canvas.height - 100, 60, 100);   	 	//that.rocketImage.onload = function()
     	//{
     		

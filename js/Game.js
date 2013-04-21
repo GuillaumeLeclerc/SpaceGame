@@ -77,6 +77,11 @@ function Game(canvasId , entryPoint) {
     {
         var currentTime = new Date().getMilliseconds();
         var timeSpan = currentTime - that.lastLoop;
+        if(timeSpan < 0)
+        {
+        	timeSpan = currentTime + 1000 - that.lastLoop;
+        }
+        //console.log(currentTime + " " + that.lastLoop);
         if (that.firstPresenter) {
             that.getCurrentPresenter().setUp();
             that.firstPresenter = false;
