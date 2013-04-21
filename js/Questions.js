@@ -51,9 +51,9 @@ function Questions(game) {
 		}
 	}
 	
-	that.pointDown = function(evt) {}
+	that.pointerDown = function(evt) {}
 	
-	that.pointUp = function(evt) {
+	that.pointerUp = function(evt) {
 		if (that.currentAnswer == -1) {
 			//listen for answers
 			if (evt.x < 50 || evt.x > that.game.data.canvas.width - 50) {
