@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+	<canvas id="mainCanvas" width="800" height="600" style="z-index: 1; position:absolute; left:0px; top:0px;"></canvas>
+
+    <script src="js/Star.js"></script>
+	<script src="js/ImageProvider.js"></script>
+    <script src="js/Planet.js"></script>
+    <script src="js/Point.js"></script>
+    <script src="js/Fuel.js"></script>
+    <script src="js/Engine.js"></script>
+    <script src="js/Rocket.js"></script>
+    <script src="js/Hand.js"></script>
+    <script src="js/GamePresenter.js"></script>
+    <script src="js/MainMenu.js"></script>
+    <script src="js/Intro.js"></script>
+    <script src="js/Game.js"></script>
+	<script src="js/Upgrades.js"></script>
+	<script src="js/Question.js"></script>
+	<script src="js/Questions.js"></script>
+     
+    <script>  
+        var game = new Game("mainCanvas", "homePage");
+		game.start();
+    </script>
+
+</body>
+</html>
