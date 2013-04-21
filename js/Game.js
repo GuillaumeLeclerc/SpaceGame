@@ -54,6 +54,7 @@ function Game(canvasId , entryPoint) {
         UI: "images/UI2.png",
         MenuBG: "images/backMenu.jpg",
         logo: "images/logo.png",
+        introduction: "images/introduction.png",
     };
 
     that.imageProviders = new Array();
