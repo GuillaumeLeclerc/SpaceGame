@@ -51,7 +51,8 @@ function Game(canvasId , entryPoint) {
         satellite1 : "images/satellite1.png",
         satellite2 : "images/satellite2.png",
         satellite3: "images/satellite3.png",
-        UI : "images/UI2.png"
+        UI: "images/UI2.png",
+        MenuBG: "images/backMenu.jpg"
     };
 
     that.imageProviders = new Array();
@@ -67,7 +68,7 @@ function Game(canvasId , entryPoint) {
     };
 
     that.presenters = {
-        homePage: null,
+        homePage: new MainMenu(),
         setUp: null,
         game: new GamePresenter(that),
         question : null 
