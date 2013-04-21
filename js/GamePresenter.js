@@ -211,9 +211,9 @@ function GamePresenter(parent)
    	 		rCoords.x = 0;
    	 	}
    	 	
-   	 	if (rCoords.x > that.width - that.rocket.displaySize.y)
+   	 	if (rCoords.x > that.width - that.rocket.displaySize.x)
    	 	{
-   	 		rCoords.x = that.width - that.rocket.displaySize.y;
+   	 		rCoords.x = that.width - that.rocket.displaySize.x;
    	 	}
    	 	
    	 	that.context.drawImage(that.rocketImage, rCoords.x, rCoords.y, that.rocket.displaySize.x, that.rocket.displaySize.y);

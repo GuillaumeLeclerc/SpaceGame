@@ -3,7 +3,7 @@
 function Engine(i_mass , i_fuel , i_efficiency , i_fuelConsumption) {
     var that = this;
 
-    that.thrusterEnergy = 50000;
+    that.thrusterEnergy = 500000;
 
     that.fuel = i_fuel;
     that.efficiency = i_efficiency;
