@@ -21,7 +21,7 @@ window.requestAnimFrame =
 function Game(canvasId , entryPoint) {
     var that= this;
 
-    var _fuelAmount=1100;
+    var _fuelAmount=100;
     var _fuelEfficiency=3312000;
     var _fuelMassValue=0.07;
     var _qsumption=0.9;
@@ -149,8 +149,5 @@ function Game(canvasId , entryPoint) {
         that.lastLoop = new Date().getMilliseconds();
         that.innerLoop();
     }
-
-
-
 
 }
