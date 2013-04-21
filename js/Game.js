@@ -21,7 +21,7 @@ window.requestAnimFrame =
 function Game(canvasId , entryPoint) {
     var that= this;
 
-    var _fuelAmount=1;
+    var _fuelAmount=110;
     var _fuelEfficiency=3312000;
     var _fuelMassValue=0.07;
     var _qsumption=0.9;

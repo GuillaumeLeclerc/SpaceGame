@@ -190,10 +190,10 @@ function GamePresenter(parent)
    	 	that.context.fillStyle = "rgba(255, 255, 255, 1)";
    	 	wrapText(that.context, "height = " + that.rocket.position.y, 0, 30, 100, 20);
    	 	//wrapText(that.context, "star = " + that.stars[0].Data.Position.x + " " + that.stars[0].Data.Position.y, 0, 60, 100, 20);
-   	 	console.log(timeStep); 	
-   	 	that.backGround.Context.drawImage(that.rocketImage, rocketXinPixels + that.canvas.width/2 - 40, that.canvas.height - 170, 80, 150);   	 	//that.rocketImage.onload = function()
-   	 	that.backGround.Context.drawImage(that.satelliteImage, 100, 200, 150, 150);
-   	 	that.backGround.Context.drawImage(that.asteroidImage, 400, 300, 150, 150);   	 	
+   	 	console.log(timeStep);
+   	 	that.context.drawImage(that.rocketImage, rocketXinPixels + that.canvas.width/2 - 40, that.canvas.height - 170, 80, 150);   	 	//that.rocketImage.onload = function()
+   	 	that.context.drawImage(that.satelliteImage, 100, 200, 150, 150);
+   	 	that.context.drawImage(that.asteroidImage, 400, 300, 150, 150);
     	//{
     		
   		//}
