@@ -209,11 +209,15 @@ function GamePresenter(parent)
    	 	if (rCoords.x < 0)
    	 	{
    	 		rCoords.x = 0;
+   	 		that.rocket.speed.x = 0;
+   	 		that.rocket.engine.leftOn = false;
    	 	}
    	 	
    	 	if (rCoords.x > that.width - that.rocket.displaySize.x)
    	 	{
    	 		rCoords.x = that.width - that.rocket.displaySize.x;
+   	 		that.rocket.speed.x = 0;
+   	 		that.rocket.engine.rightOn = false;
    	 	}
    	 	
    	 	that.context.drawImage(that.rocketImage, rCoords.x, rCoords.y, that.rocket.displaySize.x, that.rocket.displaySize.y);
