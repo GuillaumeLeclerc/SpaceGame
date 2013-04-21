@@ -123,15 +123,40 @@ function Game(canvasId , entryPoint) {
 
     that.onPointerUp = function (evt) {
         evt.preventDefault();
-        that.getCurrentPresenter().pointerUp(evt);
+        evt2 = {
+            x: evt.x / that.size,
+            y: evt.y / that.size,
+            clientX: evt.clientX / that.size,
+            clientY: evt.clientY / that.size,
+            pointerId: evt.pointerId
+        }
+        that.getCurrentPresenter().pointerUp(evt2);
     }
 
     that.onPointerDown = function (evt) {
         evt.preventDefault();
-        that.getCurrentPresenter().pointerDown(evt);
+        evt2 = {
+            x: evt.x / that.size,
+            y: evt.y / that.size,
+            clientX: evt.clientX / that.size,
+            clientY: evt.clientY / that.size,
+            pointerId: evt.pointerId
+        }
+        that.getCurrentPresenter().pointerDown(evt2);
     }
 
-    that.setUp = function(){
+    that.changeDimensions = function () {
+        var ratio1 = window.innerWidth / 800;
+        var ratio2 = window.innerHeight / 600;
+        var currentRatio = ratio1 < ratio2 ? ratio1 : ratio2;
+        that.size = currentRatio;
+        that.data.canvas.style.zoom = that.size;
+
+    }
+
+
+    that.setUp = function () {
+        that.changeDimensions();
         that.data.canvas.addEventListener("PointerDown", that.onPointerDown, false);
         that.data.canvas.addEventListener("PointerUp", that.onPointerUp, false);
         for (var index in that.imagesToLoad) {
@@ -161,4 +186,8 @@ function Game(canvasId , entryPoint) {
         that.innerLoop();
     }
 
+}
+
+window.onresize = function (event) {
+    game.changeDimensions();
 }
