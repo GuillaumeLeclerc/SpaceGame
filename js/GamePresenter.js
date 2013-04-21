@@ -203,8 +203,8 @@ function GamePresenter(parent)
    	 	//console.log(timeStep);
    	 	var rCoords = that.rocket.getCoordInCoordinateSystem(that.rocket.position, that.height, that.rocket.displaySize.y);
    	 	
-   	 	var rCoords.x = rCoords.x + Math.random() * 3 - 1.5;
-   	 	var rCoords.y = rCoords.y + Math.random() * 3 - 1.5;
+   	 	rCoords.x = rCoords.x + Math.random() * 3 - 1.5;
+   	 	rCoords.y = rCoords.y + Math.random() * 3 - 1.5;
    	 	
    	 	if (rCoords.x < 0)
    	 	{
@@ -244,7 +244,7 @@ function GamePresenter(parent)
    	 		sCoords.x = that.width - 150;
    	 	}
    	 	
-   	 	that.context.drawImage(that.asteroidImage, a.Coords.x, aCoords.y, 150, 150);
+   	 	that.context.drawImage(that.asteroidImage, aCoords.x, aCoords.y, 150, 150);
    	 	
    	 	that.context.drawImage(that.satelliteImage, sCoords.x, sCoords.y, 150, 150);
    	 	
