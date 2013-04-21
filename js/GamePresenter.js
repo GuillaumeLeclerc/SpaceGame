@@ -235,6 +235,12 @@ function GamePresenter(parent)
 
 	    }
 
+	    if (that.rocket.position.y <= -10 && that.rocket.speed.y < -70) {
+	        alert("Game Over - Your rocket crashed");
+	        return -3;
+	    }
+
+
 
 	    return -1;
 	}
