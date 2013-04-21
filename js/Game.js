@@ -44,7 +44,13 @@ function Game(canvasId , entryPoint) {
     that.imagesToLoad = {
         rocket1 : "images/rocket1.png",
         rocket2 : "images/rocket2.png",
-        rocket3 : "images/rocket3.png"
+        rocket3 : "images/rocket3.png",
+        asteroid1 : "images/asteroid1.png",
+        asteroid2 : "images/asteroid2.png",
+        asteroid3 : "images/asteroid3.png",
+        satellite1 : "images/satellite1.png",
+        satellite2 : "images/satellite2.png",
+        satellite3 : "images/satellite3.png"
     };
 
     that.imageProviders = new Array();
