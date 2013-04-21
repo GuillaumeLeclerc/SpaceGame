@@ -52,7 +52,8 @@ function Game(canvasId , entryPoint) {
         satellite2 : "images/satellite2.png",
         satellite3: "images/satellite3.png",
         UI: "images/UI2.png",
-        MenuBG: "images/backMenu.jpg"
+        MenuBG: "images/backMenu.jpg",
+        logo: "images/logo.png",
     };
 
     that.imageProviders = new Array();
