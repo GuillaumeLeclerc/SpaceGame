@@ -19,34 +19,43 @@ function Questions(game) {
 	questionsForLevel0[1] = new Question("Who launched the first satellite into orbit?", question10Answers, 1);
 	
 	var question20Answers = ["no fuel", "human coordination", "gravity ", "Earth’s magnetic field"];
-	questionsForLevel0[2] = new Question("What keeps a satellite from leaving its orbit?", question20Answers, 1);
+	questionsForLevel0[2] = new Question("What keeps a satellite from leaving its orbit?", question20Answers, 2);
 	
 	that.questions[0] = questionsForLevel0;
 	
 	var questionsForLevel1 = new Array();
 	var question01Answers = ["1", "3", "5", "7"];
-	questionsForLevel1[0] = new Question("How many space agencies are maintaining ISS?", question01Answers, 3);
+	questionsForLevel1[0] = new Question("How many space agencies are maintaining ISS?", question01Answers, 2);
 	
 	var question11Answers = ["1", "7.5", "15.7", "22.3"];
-	questionsForLevel1[1] = new Question("How many times per day does ISS orbits around Earth?", question11Answers, 15.7);
+	questionsForLevel1[1] = new Question("How many times per day does ISS orbits around Earth?", question11Answers, 2);
 	
 	var question21Answers = ["Scientific research", "Telecommunications", "Military", "Tourism"];
-	questionsForLevel1[2] = new Question("Main use of ISS is for:", question21Answers, 1);
+	questionsForLevel1[2] = new Question("Main use of ISS is for:", question21Answers, 0);
 	
 	that.questions[1] = questionsForLevel1;
 	
 	that.setUp = function() {
+		that.currentQuestion = 0;
+		that.currentLevel = 0;
+		that.over = false;
+		that.currentAnswer = -1;
+		that.counter = 0;
 		that.currentLevel = that.game.data.currentLevel;
 		var canvas = that.game.data.canvas;
 		var ctx = that.game.data.canvasContext;
 		ctx.clearRect(0, 0, that.game.data.canvas.width, that.game.data.canvas.height);
+		ctx.drawImage(that.game.data.images.MenuBG, 0, 0);
 		
 		that.q = that.questions[that.currentLevel][that.currentQuestion];
+		ctx.fillStyle="#FFFFFF";
 		ctx.font = '16pt Calibri';
 		wrapText(ctx, that.q.question, 50, 50, canvas.width-50, 20);
 		
+		ctx.fillStyle="#000000";
 		for (var i = 0; i < that.q.answers.length; i++) {
-			ctx.strokeRect(50, 50*(i+2)-20, canvas.width-50, 25);
+			ctx.clearRect(50, 50*(i+2)-20, canvas.width-100, 25);
+			ctx.strokeRect(50, 50*(i+2)-20, canvas.width-100, 25);
 			wrapText(ctx, that.q.answers[i], 50, 50*(i+2), canvas.width-50, 20);
 		}
 	}
@@ -101,22 +110,28 @@ function Questions(game) {
 			if (that.counter == 0) {
 				//load next question
 				that.game.data.canvasContext.clearRect(0, 0, that.game.data.canvas.width, that.game.data.canvas.height);
+				that.game.data.canvasContext.drawImage(that.game.data.images.MenuBG, 0, 0);
 				
 				that.currentQuestion++;
 				if (that.currentQuestion >= that.questions[that.currentLevel].length) {
 					//questions over
-					return 2;
+					that.game.data.currentLevel++;
+					return "upgrade";
 				}
 				
 				that.currentAnswer = -1;
 				var canvas = that.game.data.canvas;
 				var ctx = that.game.data.canvasContext;
 				that.q = that.questions[that.currentLevel][that.currentQuestion];
+				ctx.fillStyle="#FFFFFF";
 				ctx.font = '16pt Calibri';
 				wrapText(ctx, that.q.question, 50, 50, canvas.width-50, 20);
 				
+				ctx.fillStyle="#000000";
+				
 				for (var i = 0; i < that.q.answers.length; i++) {
-					ctx.strokeRect(50, 50*(i+2)-20, canvas.width-50, 25);
+					ctx.clearRect(50, 50*(i+2)-20, canvas.width-100, 25);
+					ctx.strokeRect(50, 50*(i+2)-20, canvas.width-100, 25);
 					wrapText(ctx, that.q.answers[i], 50, 50*(i+2), canvas.width-50, 20);
 				}
 				return -1;

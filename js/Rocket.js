@@ -14,6 +14,11 @@ function Rocket(i_mass , i_engine) {
     that.position = new Point(0, 0);
     that.mass = 5;
 
+	that.enginelvl = 1;
+	that.fuellvl = 1;
+	that.fuelamountlvl = 1;
+
+	
     that.suposedSize = new Point(100, 180);
     that.displaySize = new Point(80, 150);
     that.screenPosition = new Point(0.5 * (that.width - that.displaySize), 30);

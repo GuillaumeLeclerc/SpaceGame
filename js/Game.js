@@ -110,7 +110,7 @@ function Game(canvasId , entryPoint) {
 
     that.presenters = {
         homePage: new MainMenu(that),
-        setUp: null,
+        upgrade: new Upgrades(that),
         game: new GamePresenter(that),
         question: new Questions(that),
         introduction : new Intro(that)

@@ -7,6 +7,7 @@ function MainMenu(i_parent) {
     that.mustQuit = false;
 
     that.setUp = function () {
+		that.mustQuit = false;
         that.parent.data.canvasContext.drawImage(that.parent.data.images.MenuBG, 0, 0);
         that.parent.data.canvasContext.drawImage(that.parent.data.images.logo, 360, 150);
     }
