@@ -43,12 +43,12 @@ function Intro(i_parent) {
             title: "International Space Station (340 km / 211.3 miles)",
             text : "International Space Station is a habitable artificial satellite. It is located in Low Earth Orbit on altitude between  330 km (205 mi) and 435 km (270 mi) and it makes 15.7 orbits around the Earth every day.. It allows people to stay there and do research in biology, physics, astronomy and meteorology. It was launched in 1998 and is now maintained by American, Russian, European, Japanese and Canadian space agencies. ISS is now largest artificial body in the orbit, and can sometimes be seen by naked eye."
         },
-        3: {
+       2: {
 			height: 595000,
             title: "Polar orbiting satellites (700 - 1700 km)",
             text : "A polar orbiting satellite is one that passes over both poles of the object being orbited on each revolution. Only polar geosynchronous orbit satellites pass over the Equator at the same longitude in each orbit.\nThe main uses for these satellites are reconnaissance satellites and weather satellites. In most cases, the orbit is sun-synchronous, meaning that each successive orbital pass occurs at the same local time of day. In order for this to happen throughout the year, the satellite doesn’t pass directly over the poles, but has a slight inclination (8 degrees) and so it is subject to a torque which causes precession"
         },
-        2: {
+        3: {
 			height: 1000000,
             title : "Hubble Space Telescope (559 km 369.7 miles)",
             text : "Hubble Space Telescope is a telescope that is orbiting the Earth. It was carried to orbit by Space shuttle in 1990. It has 2.4 meters in diameter and orbits on altitude of 559 km. Because it orbits outside of the Earths atmosphere images it makes are not distorted by it and do not have background light, so  they are much more detailed than images taken by telescopes on earth. Hubble can also take image of ultraviolet and infrared light that is not visible by humans. All repairs and improvements on Hubble are made by astronauts in space. Until now 4 missions were sent to the telescope."

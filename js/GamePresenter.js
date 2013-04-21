@@ -81,11 +81,16 @@ function GamePresenter(parent)
 	    that.rocket.speed = new Point(0, 0);
 
 	    that.rocketImage = that.parent.data.images.rocket1;
+	    that.rocketImageWOFlames = that.parent.data.images.rocket1WO;
+	    
 	    that.asteroidImage = that.parent.data.images.asteroid1;
 	    that.sateliteImage = that.parent.data.images.satellite1;
 
 	    that.rocketImage.style.height = "150px";
 	    that.rocketImage.style.width = "80px";
+	    
+	    that.rocketImageWOFlames.style.height = "150px";
+	    that.rocketImageWOFlames.style.width = "80px";
 
 
 	    that.rocket.suposedSize = new Point(60, 180);
@@ -281,7 +286,16 @@ function GamePresenter(parent)
 	        that.rocket.engine.rightOn = false;
 	    }
 
-	    that.context.drawImage(that.rocketImage, rCoords.x, rCoords.y, that.rocket.displaySize.x, that.rocket.displaySize.y);
+		if (that.rocket.engine.fuel.amount > 0)
+		{
+			// draw with fire
+	    	that.context.drawImage(that.rocketImage, rCoords.x, rCoords.y, that.rocket.displaySize.x, that.rocket.displaySize.y);
+	    }
+	    else
+	    {
+	    	// draw without fire
+	    	that.context.drawImage(that.rocketImageWOFlames, rCoords.x, rCoords.y, that.rocket.displaySize.x, that.rocket.displaySize.y);
+	    }
 
 	    for (var i = 0; i < that.asteroids.length; i++) {
 	        var asteroid = that.asteroids[i];

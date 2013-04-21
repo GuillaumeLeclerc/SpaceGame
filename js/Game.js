@@ -44,6 +44,7 @@ function Game(canvasId , entryPoint) {
 
     that.imagesToLoad = {
         rocket1 : "images/rocket1.png",
+        rocket1WO : "images/rocket1_without_flames.png",
         rocket2 : "images/rocket2.png",
         rocket3 : "images/rocket3.png",
         asteroid1 : "images/asteroid1.png",
