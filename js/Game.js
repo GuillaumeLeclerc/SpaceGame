@@ -66,7 +66,9 @@ function Game(canvasId , entryPoint) {
         planet: myPlanet,
         canvas: mainCanvas,
         canvasContext: mainContext,
-        images: {}
+        images: {},
+        currentLevel: 1,
+        point : 0
     };
 
     that.presenters = {
