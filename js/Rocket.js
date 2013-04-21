@@ -14,6 +14,11 @@ function Rocket(i_mass , i_engine) {
     that.position = new Point(0, 0);
     that.mass = 5;
 
+    that.suposedSize = new Point(100, 180);
+    that.displaySize = new Point(80, 150);
+    that.screenPosition = new Point(0.5 * (that.width - that.displaySize), 30);
+    that.offset = 0;
+
     that.setMass = function(i_mass){
         that.mass = i_mass;
     }
@@ -40,6 +45,23 @@ function Rocket(i_mass , i_engine) {
         var resultant = new Point(0, -1);
         resultant.scalarMultiply(planet.getGravity(that.mass, that.position.y));
         resultant.add(that.engine.getForce(timeStep));
-        that.applyForce(resultant,timeStep);
+        that.applyForce(resultant, timeStep);
+        if (that.screenPosition.y < 30) {
+            that.screenPosition.y+=0.3;
+        }
     }
+
+    that.getCoordInCoordinateSystemInner = function (c) {
+        var scaleX = that.displaySize.x / that.suposedSize.x;
+        var scaleY = that.displaySize.y / that.suposedSize.y;
+
+        return new Point(c.x * scaleX, c.y * scaleY);
+    }
+
+    that.getCoordInCoordinateSystem = function (c , height , dHeight) {
+        var result = that.getCoordInCoordinateSystemInner(c);
+        var base = that.getCoordInCoordinateSystemInner(that.position);
+        return new Point(result.x + that.screenPosition.x, height - (result.y - base.y + that.screenPosition.y) - dHeight);
+    }
+
 }

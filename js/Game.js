@@ -21,7 +21,7 @@ window.requestAnimFrame =
 function Game(canvasId , entryPoint) {
     var that= this;
 
-    var _fuelAmount=110;
+    var _fuelAmount=1100;
     var _fuelEfficiency=3312000;
     var _fuelMassValue=0.07;
     var _qsumption=0.9;
@@ -30,7 +30,7 @@ function Game(canvasId , entryPoint) {
     var _planetRadius=6.371E6;
     var _engineMass=100;
     var _engineEfficiency=0.8;
-    var _engineFuelConsumption=0.9;
+    var _engineFuelConsumption=5;
     var myPlanet = new Planet(_planetMass, _planetRadius);
     var myFuel = new Fuel(_fuelAmount, _fuelEfficiency, _fuelMassValue);
     var myEngine = new Engine(_engineMass, myFuel, _engineEfficiency, _engineFuelConsumption);
@@ -50,7 +50,8 @@ function Game(canvasId , entryPoint) {
         asteroid3 : "images/asteroid3.png",
         satellite1 : "images/satellite1.png",
         satellite2 : "images/satellite2.png",
-        satellite3 : "images/satellite3.png"
+        satellite3: "images/satellite3.png",
+        UI : "images/UI2.png"
     };
 
     that.imageProviders = new Array();
