@@ -107,8 +107,11 @@ function Game(canvasId , entryPoint) {
             that.firstPresenter = false;
         }
         var answer = that.presenters[that.currentPresenter].nextStep(timeSpan/1000);
-        if (answer != -1)
-        {
+        if (answer != -1) {
+            if (answer == -3) {
+                return -3;
+            }
+
             that.changePresenter(answer);
         }
         that.lastLoop = new Date().getMilliseconds();
